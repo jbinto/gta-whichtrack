@@ -2,8 +2,8 @@
 
 ## 2021-11-06 13:11:34
 
-* Commit workers.dev example code 
-* Put API key in secrets
+* [DONE] Commit workers.dev example code 
+* [DONE] Put API key in secrets
 
 * CircleCI build to deploy to workers.dev
 

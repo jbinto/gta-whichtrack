@@ -7,8 +7,12 @@ addEventListener("fetch", (event) => {
   });
   
   async function handleRequest(request) {
+    if (!METROLINX_API_KEY) {
+      throw new Error('METROLINX_API_KEY must be defined in cloudflare worker secrets')
+    }
+    
     const baseURL = 'http://api.openmetrolinx.com/OpenDataAPI/api/V1'
-    const key = 'CHANGEME'
+    const key = METROLINX_API_KEY
     const makeURL = (u) => `${baseURL}${u}?key=${key}`
     
     const { pathname, searchParams } = new URL(request.url);
