@@ -6,19 +6,15 @@ jobs:
       - image: cimg/node:17.0.1
     steps:
       - checkout
-      - run: npm i @cloudflare/wrangler -g
+      - restore_cache:
+          keys:
+            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+      - run: npm ci
+      - save_cache:
+          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+          paths:
+            - ~/.npm
       - run: wrangler publish
-      # - restore_cache:
-      #     keys:
-      #       - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-      # - run:
-      #     name: install packages
-      #     command: npm ci
-      # - save_cache:
-      #     key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-      #     paths:
-      #       - ~/.npm
-
 
 workflows:
   build-and-deploy:

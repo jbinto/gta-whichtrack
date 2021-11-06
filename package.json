@@ -4,5 +4,8 @@
   "main": "worker.js",
   "repository": "git@github.com:jbinto/gta-whichtrack.git",
   "author": "Jesse Buchanan <hello@jessebuchanan.ca>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/wrangler": "^1.19.4"
+  }
 }
