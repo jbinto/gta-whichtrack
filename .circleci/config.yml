@@ -11,11 +11,11 @@ jobs:
       - run: pwd && cd /mnt/ramdisk/whichtrack-worker
       - restore_cache:
           keys:
-            - yarn-v2-{{ .Branch }}-{{checksum "yarn.lock"}}
+            - yarn-v2-{{ .Branch }}-{{checksum "/mnt/ramdisk/whichtrack-worker/yarn.lock"}}
       - run: yarn
       - run: yarn lint
       - save_cache:
-          key: yarn-v2-{{ .Branch }}-{{checksum "yarn.lock"}}
+          key: yarn-v2-{{ .Branch }}-{{checksum "/mnt/ramdisk/whichtrack-worker/yarn.lock"}}
           paths: ./node_modules
       - run: yarn wrangler publish
 
