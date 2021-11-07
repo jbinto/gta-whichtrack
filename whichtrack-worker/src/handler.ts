@@ -65,6 +65,7 @@ export async function handleRequest(request: Request): Promise<Response> {
   let output = `Last update: ${asOf}:\n\n`
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   output += lines.map(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (l: any) =>
       `${l.directionName}: ${l.scheduledAt} platform=${l.platform} actualPlatform=${l.platformActual}\n`,
   )
