@@ -1,0 +1,12 @@
+name = "whichtrack"
+type = "javascript"
+workers_dev = true
+compatibility_date = "2021-11-07"
+
+[build]
+command = "yarn && yarn build"
+[build.upload]
+format = "service-worker"
+
+# [secrets]
+# METROLINX_API_KEY
