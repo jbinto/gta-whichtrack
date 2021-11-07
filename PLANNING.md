@@ -5,12 +5,14 @@
 * [DONE] Commit workers.dev example code 
 * [DONE] Put API key in secrets
 
-* CircleCI build to deploy to workers.dev
+* [DONE] CircleCI build to deploy to workers.dev
 
 * Use `ittyrouter` to make code more practical
   * e.g. somewhat mirror upstream API structure, params like /stops/:stopID
   * .txt for summary (e.g. usable pre-frontend), .json for full data structure
 * Implement /stops endpoint
+
+* do webpack build, so we can bring in modules? 
 
 * Add next frontend
   * on CI `next export` hello world to cloudflare pages
