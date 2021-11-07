@@ -8,16 +8,15 @@ jobs:
       - image: cimg/node:17.0.1
     steps:
       - checkout
-      - run: pwd && cd /mnt/ramdisk/whichtrack-worker
       - restore_cache:
           keys:
             - yarn-v2-{{ .Branch }}-{{checksum "/mnt/ramdisk/whichtrack-worker/yarn.lock"}}
-      - run: yarn
-      - run: yarn lint
+      - run: cd whichtrack-worker && yarn
+      - run: cd whichtrack-worker && yarn lint
       - save_cache:
           key: yarn-v2-{{ .Branch }}-{{checksum "/mnt/ramdisk/whichtrack-worker/yarn.lock"}}
           paths: ./node_modules
-      - run: yarn wrangler publish
+      - run: cd whichtrack-worker && yarn wrangler publish
 
 workflows:
   build-and-deploy-worker:
