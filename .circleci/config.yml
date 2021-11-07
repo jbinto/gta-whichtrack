@@ -8,7 +8,7 @@ jobs:
       - image: cimg/node:17.0.1
     steps:
       - checkout
-      - run: cd ./whichtrack-worker
+      - run: pwd && cd whichtrack-worker
       - restore_cache:
           keys:
             - yarn-v2-{{ .Branch }}-{{checksum "yarn.lock"}}
